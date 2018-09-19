@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <script>
+        window.addEventListener('resize',function(){
+            var html = document.documentElement;
+            var htmlW = html.getBoundingClientRect().width;
+            html.style.fontSize = htmlW/15 + "px";
+        },false);
+
+        var html = document.documentElement;
+        var htmlW = html.getBoundingClientRect().width;
+        html.style.fontSize = htmlW/15 + "px";
+    </script>
+    <link rel="stylesheet" href="css/reset.css">
+    <!--<link rel="stylesheet" href="css/index.css">-->
+    <style>
+
+
+        iframe{
+            border: 0;
+            padding: 0;
+            margin: 0;
+        }
+        #one{
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        #boxone{
+            height: 3rem;
+        }
+        .two{
+          margin-top: -.25rem;
+         }
+        .wrap{
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        #box{
+            /*position: relative;*/
+            /*z-index: -1;*/
+            /*top: 0;*/
+        }
+    </style>
+</head>
+<body>
+<div id="boxone">
+    <div class="wrap">
+        <div class="title">
+            <p class="p-title">DAISY<span>KIDS</span>倾城宝贝儿童摄影</p>
+            <p class="p-des"><span></span> CHILDREN'S PHOTOGRAPHY <span></span></p>
+        </div>
+        <div class="nav">
+            <ul>
+                <li class="active"><h3>首页</h3><p>HOME</p></li>
+                <li><h3>简介</h3><p>PROFILE</p></li>
+                <li><h3>门店</h3><p>STORE</p></li>
+                <li><h3>客照</h3><p>WORKS</p></li>
+                <li><h3>活动</h3><p>EVENT</p></li>
+                <li><h3>评价</h3><p>EVALUATE</p></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="box">
+    <iframe class="two" src="bodyone.html" frameborder="0" width="100%" height="1900rem"></iframe>
+</div>
+<script src="js/jquery-1.12.4.js"></script>
+<!--<script src="js/index.js"></script>-->
+<script>
+
+
+
+
+    var data = [
+        {
+            url: "bodyone",
+            height: 1900
+        },
+        {
+            url: "two",
+            height: 950
+        },
+        {
+            url: "store",
+            height: 595
+        },
+        {
+            url: "works",
+            height: 590
+        },
+        {
+            url: "event",
+            height: 590
+        },
+        {
+            url: "evaluate",
+            height: 590
+        }
+    ];
+    var oBox = document.getElementById('box');
+    var oBtn = document.querySelectorAll('.wrap .nav li');
+
+    var flag = oBtn[0];
+    for(let i=0;i<oBtn.length;i++){
+        oBtn[i].addEventListener('touchstart',function(){
+            flag.className = '';
+            var str = '<iframe class="two" src="'+ data[i].url +'.html" frameborder="0" width="100%" height="'+ data[i].height +'rem"></iframe>';
+            flag = this;
+            oBox.innerHTML = str;
+            // oBox.scrollTop = "5rem";
+            flag.className = 'active';
+        },false);
+    }
+</script>
+</body>
+
+</html>
